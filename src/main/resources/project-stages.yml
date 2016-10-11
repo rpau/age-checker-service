@@ -3,6 +3,7 @@ swarm:
     offset: 0
 ---
 project:
-    stage: development
+  stage: development
 swarm:
-  port: "aaaaaaa8090"
+  http:
+    port: "8090"
