@@ -19,7 +19,7 @@ public class AgeCheckerResource {
 
     @Path("/checker")
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces("text/plain; charset=ISO-8859-1")
     @POST
     public Response check(final JsonObject data) {
 

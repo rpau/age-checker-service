@@ -14,6 +14,9 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <failOnMissingWebXml>false</failOnMissingWebXml>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <version.arquillian>1.1.10.Final</version.arquillian>
+    <version.arquillian.pact>1.0.0.Final-SNAPSHOT</version.arquillian.pact>
+    <version.pact>3.5.0-beta.2</version.pact>
   </properties>
 
   <dependencyManagement>
@@ -24,6 +27,13 @@
         <version>${version.wildfly.swarm}</version>
         <scope>import</scope>
         <type>pom</type>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.arquillian</groupId>
+        <artifactId>arquillian-bom</artifactId>
+        <version>${version.arquillian}</version>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -64,6 +74,37 @@
       <groupId>org.wildfly.swarm</groupId>
       <artifactId>microprofile</artifactId>
     </dependency>
+    <!-- Arquillian -->
+    <!-- Brought in via WildFly Swarm `bom` -->
+    <dependency>
+      <groupId>org.wildfly.swarm</groupId>
+      <artifactId>arquillian</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <!-- Brought in via Arquillian BOM, see dependencyManagement section above -->
+    <dependency>
+      <groupId>org.jboss.arquillian.junit</groupId>
+      <artifactId>arquillian-junit-container</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.arquillian.pact</groupId>
+      <artifactId>arquillian-pact-provider-core</artifactId>
+      <version>${version.arquillian.pact}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>au.com.dius</groupId>
+      <artifactId>pact-jvm-provider_2.11</artifactId>
+      <version>${version.pact}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.arquillian.pact</groupId>
+      <artifactId>arquillian-pact-provider-git-loader</artifactId>
+      <version>${version.arquillian.pact}</version>
+    </dependency>
+
   </dependencies>
 
   <profiles>
