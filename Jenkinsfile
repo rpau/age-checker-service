@@ -13,7 +13,7 @@ node {
 
    stage('Consumer Tests') {
       withEnv(['skipDeployment=true']) {
-           //sh "'${mvnHome}/bin/mvn' clean test"
+           sh "'${mvnHome}/bin/mvn' clean test"
       }
    }
 
