@@ -34,7 +34,7 @@ public class AgeCheckerProviderTest {
     }
 
     @ArquillianResource
-    @Environment("agecheckerurl")
+    @Environment("remoteagecheckerurl")
     URL webapp;
 
     @ArquillianResource
