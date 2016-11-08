@@ -13,6 +13,7 @@ node {
 
     stage('Provider Tests') {
         if (agecheckerurl != null && !agecheckerurl.isEmpty()) {
+            println "Using ${agecheckerurl} for running Tests"
             withEnv(["skipDeployment=true", "agechecker.url=${agecheckerurl}"]) {
                 sh "'${mvnHome}/bin/mvn' clean test"
             }
