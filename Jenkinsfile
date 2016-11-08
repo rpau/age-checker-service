@@ -11,7 +11,7 @@ node {
         sh "'${mvnHome}/bin/mvn' clean test-compile"
     }
 
-    stage('Consumer Tests') {
+    stage('Provider Tests') {
         if (agecheckerurl != null && !agecheckerurl.isEmpty()) {
             withEnv(['skipDeployment=true']) {
                 sh "'${mvnHome}/bin/mvn' clean test"
