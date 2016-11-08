@@ -58,6 +58,12 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 
@@ -75,12 +81,7 @@
       <artifactId>microprofile</artifactId>
     </dependency>
     <!-- Arquillian -->
-    <!-- Brought in via WildFly Swarm `bom` -->
-    <dependency>
-      <groupId>org.wildfly.swarm</groupId>
-      <artifactId>arquillian</artifactId>
-      <scope>test</scope>
-    </dependency>
+
     <!-- Brought in via Arquillian BOM, see dependencyManagement section above -->
     <dependency>
       <groupId>org.jboss.arquillian.junit</groupId>
@@ -103,6 +104,12 @@
       <groupId>org.arquillian.pact</groupId>
       <artifactId>arquillian-pact-provider-git-loader</artifactId>
       <version>${version.arquillian.pact}</version>
+    </dependency>
+    <!-- Brought in via WildFly Swarm `bom` -->
+    <dependency>
+      <groupId>org.wildfly.swarm</groupId>
+      <artifactId>arquillian</artifactId>
+      <scope>test</scope>
     </dependency>
 
   </dependencies>
