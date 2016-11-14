@@ -15,7 +15,7 @@
     <failOnMissingWebXml>false</failOnMissingWebXml>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <version.arquillian>1.1.10.Final</version.arquillian>
-    <version.arquillian.pact>1.0.0.Alpha4</version.arquillian.pact>
+    <version.arquillian.algeron>1.0.0.Final-SNAPSHOT</version.arquillian.algeron>
     <version.pact>3.5.0-beta.2</version.pact>
   </properties>
 
@@ -89,9 +89,9 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.arquillian.pact</groupId>
-      <artifactId>arquillian-pact-provider-core</artifactId>
-      <version>${version.arquillian.pact}</version>
+      <groupId>org.arquillian.algeron</groupId>
+      <artifactId>arquillian-algeron-provider-core</artifactId>
+      <version>${version.arquillian.algeron}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -101,9 +101,9 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.arquillian.pact</groupId>
-      <artifactId>arquillian-pact-provider-git-loader</artifactId>
-      <version>${version.arquillian.pact}</version>
+      <groupId>org.arquillian.algeron</groupId>
+      <artifactId>arquillian-algeron-provider-git-loader</artifactId>
+      <version>${version.arquillian.algeron}</version>
     </dependency>
     <!-- Brought in via WildFly Swarm `bom` -->
     <dependency>
