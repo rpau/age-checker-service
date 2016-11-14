@@ -2,10 +2,10 @@ package org.arquillian.microservice.agecheckerservice;
 
 import org.arquillian.microservice.agecheckerservice.boundary.AgeCheckerResource;
 import org.arquillian.microservice.agecheckerservice.controller.AgeChecker;
-import org.arquillian.algeron.provider.api.deployment.Environment;
-import org.arquillian.algeron.provider.core.httptarget.Target;
-import org.arquillian.algeron.provider.loader.git.PactGit;
-import org.arquillian.algeron.provider.spi.Provider;
+import org.arquillian.algeron.pact.provider.api.deployment.Environment;
+import org.arquillian.algeron.pact.provider.core.httptarget.Target;
+import org.arquillian.algeron.pact.provider.loader.git.PactGit;
+import org.arquillian.algeron.pact.provider.spi.Provider;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;

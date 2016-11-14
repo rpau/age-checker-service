@@ -90,7 +90,7 @@
     </dependency>
     <dependency>
       <groupId>org.arquillian.algeron</groupId>
-      <artifactId>arquillian-algeron-provider-core</artifactId>
+      <artifactId>arquillian-algeron-pact-provider-core</artifactId>
       <version>${version.arquillian.algeron}</version>
       <scope>test</scope>
     </dependency>
@@ -102,7 +102,7 @@
     </dependency>
     <dependency>
       <groupId>org.arquillian.algeron</groupId>
-      <artifactId>arquillian-algeron-provider-git-loader</artifactId>
+      <artifactId>arquillian-algeron-pact-provider-git-loader</artifactId>
       <version>${version.arquillian.algeron}</version>
     </dependency>
     <!-- Brought in via WildFly Swarm `bom` -->
