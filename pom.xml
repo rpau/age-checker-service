@@ -9,13 +9,13 @@
   <packaging>war</packaging>
 
   <properties>
-    <version.wildfly.swarm>2016.10.0</version.wildfly.swarm>
+    <version.wildfly.swarm>2017.1.1</version.wildfly.swarm>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <failOnMissingWebXml>false</failOnMissingWebXml>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <version.arquillian>1.1.10.Final</version.arquillian>
-    <version.arquillian.algeron>1.0.0.Final-SNAPSHOT</version.arquillian.algeron>
+    <version.arquillian>1.1.12.Final</version.arquillian>
+    <version.arquillian.algeron>1.0.0.Alpha5</version.arquillian.algeron>
     <version.pact>3.5.0-beta.2</version.pact>
   </properties>
 
@@ -102,7 +102,7 @@
     </dependency>
     <dependency>
       <groupId>org.arquillian.algeron</groupId>
-      <artifactId>arquillian-algeron-pact-provider-git-loader</artifactId>
+      <artifactId>arquillian-algeron-provider-git-retriever</artifactId>
       <version>${version.arquillian.algeron}</version>
     </dependency>
     <!-- Brought in via WildFly Swarm `bom` -->

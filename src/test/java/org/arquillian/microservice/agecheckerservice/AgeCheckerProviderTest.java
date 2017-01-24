@@ -1,10 +1,11 @@
 package org.arquillian.microservice.agecheckerservice;
 
+import org.arquillian.algeron.pact.provider.loader.git.ContractsGit;
+import org.arquillian.algeron.pact.provider.spi.VerificationReports;
+import org.arquillian.algeron.provider.api.deployment.Environment;
 import org.arquillian.microservice.agecheckerservice.boundary.AgeCheckerResource;
 import org.arquillian.microservice.agecheckerservice.controller.AgeChecker;
-import org.arquillian.algeron.pact.provider.api.deployment.Environment;
 import org.arquillian.algeron.pact.provider.core.httptarget.Target;
-import org.arquillian.algeron.pact.provider.loader.git.PactGit;
 import org.arquillian.algeron.pact.provider.spi.Provider;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
@@ -21,7 +22,8 @@ import java.net.URL;
 @RunWith(Arquillian.class)
 @Provider("age-checker")
 @RunAsClient
-@PactGit(value = "${giturl:http://localhost:3000/alex/gamer-contracts.git}", username = "${gitusername:alex}", password = "${gitpassword:alex}")
+@VerificationReports(value = "console")
+@ContractsGit(value = "${giturl:http://localhost:3000/alex/gamer-contracts.git}", username = "${gitusername:alex}", password = "${gitpassword:alex}")
 public class AgeCheckerProviderTest {
 
     @Deployment(testable = false)
