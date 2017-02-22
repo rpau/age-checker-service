@@ -31,6 +31,24 @@
   <build>
     <finalName>age-checker-service</finalName>
     <plugins>
+       <plugin>
+            <groupId>org.walkmod.maven.plugins</groupId>
+            <artifactId>walkmod-maven-plugin</artifactId>
+            <version>1.0.2</version>
+            <executions>
+              <execution>
+                <phase>generate-sources</phase>
+                <goals>
+                  <goal>apply</goal>
+                </goals>
+                <configuration>
+                  <skipWalkmod>${skipWalkmod}</skipWalkmod>
+                  <chains>pmd</chains>
+                  <properties>configurationFile=ruleset.xml</properties>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
       <plugin>
         <groupId>org.wildfly.swarm</groupId>
         <artifactId>wildfly-swarm-plugin</artifactId>
