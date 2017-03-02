@@ -10,7 +10,7 @@ node {
    }
    stage('Build') {
       // Run the maven build
-      echo “'${mvnHome}/bin/mvn'”
+      echo "${mvnHome}/bin/mvn"
       sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
       
    }
