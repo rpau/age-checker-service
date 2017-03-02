@@ -13,9 +13,9 @@ node {
       sh 'mvn walkmod:patch'
       if (fileExists('walkmod.patch')) {
         echo 'walkmod has produced a patch'
-        sh 'git apply --ignore-space-change --ignore-whitespace walkmod.patch'
+        sh 'git apply walkmod.patch'
         sh 'rm walkmod.patch'
-        sh 'git commit -a --ammend -m "Fixing style violations"'
+        sh 'git commit -a --amend -m "Fixing style violations"'
         sh 'git push'
         currentBuild.result = 'FAILURE'
         error("Build failed by the lack of consistent coding style")
