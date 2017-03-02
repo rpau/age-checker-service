@@ -12,12 +12,8 @@ node {
       // Run the maven build
       sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
    }
-   stage('Test') {
-      // Run the maven build
-      sh "'${mvnHome}/bin/mvn' test"
-   }
    stage('Results') {
-      junit '**/target/surefire-reports/TEST-*.xml'
+      //junit '**/target/surefire-reports/TEST-*.xml'
       archive 'target/*.jar'
    }
 }
