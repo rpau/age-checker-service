@@ -9,7 +9,7 @@ node {
       mvnHome = tool 'M3'
    }
    
-   stage (‘Fixing Release’){
+   stage ('Fixing Release'){
       sh 'mvn walkmod:patch'
       if (fileExists('walkmod.patch')) {
         echo 'walkmod has produced a patch'
