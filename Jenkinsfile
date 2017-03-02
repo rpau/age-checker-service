@@ -8,6 +8,20 @@ node {
       // **       in the global configuration.           
       mvnHome = tool 'M3'
    }
+   
+   stage (‘Fixing Release’){
+      sh 'mvn walkmod:patch'
+      if (fileExists('walkmod.patch')) {
+        echo 'walkmod has produced a patch'
+        sh 'git apply walkmod.patch'
+        sh 'git commit -a --ammend -m "Fixing style violations"'
+        sh 'git push'
+        currentBuild.result = 'FAILURE'
+        error("Build failed by the lack of consistent coding style")
+      }
+      echo 'no pending quick fixes to apply'
+   }
+   
    stage('Build') {
       // Run the maven build
       echo "${mvnHome}/bin/mvn"
