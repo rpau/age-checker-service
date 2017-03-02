@@ -16,7 +16,6 @@ import java.util.List;
 @Path("/")
 public class AgeCheckerResource {
 
-    private String myUnusedAttribute;
 
     @Inject
     AgeChecker ageChecker;
@@ -25,7 +24,7 @@ public class AgeCheckerResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
     @POST
-    public Response check(JsonObject data) {
+    public Response check(final JsonObject data) {
 
         int userAge = data.getInt("age");
         String pegi = data.getString("pegi");

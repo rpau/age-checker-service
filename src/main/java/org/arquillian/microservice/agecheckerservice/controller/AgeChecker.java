@@ -6,12 +6,12 @@ import java.util.Objects;
 @ApplicationScoped
 public class AgeChecker {
 
-    public boolean isOldEnough(int userAge, String pegi) {
+    public boolean isOldEnough(final int userAge, final String pegi) {
         Objects.requireNonNull(pegi);
         return userAge >= extractAge(pegi);
     }
 
-    private int extractAge(String pegi) {
+    private int extractAge(final String pegi) {
         final String age = pegi.substring(pegi.lastIndexOf('_') + 1);
         return Integer.parseInt(age);
     }
