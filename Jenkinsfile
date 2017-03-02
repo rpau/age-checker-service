@@ -14,6 +14,7 @@ node {
       if (fileExists('walkmod.patch')) {
         echo 'walkmod has produced a patch'
         sh 'git apply --ignore-space-change --ignore-whitespace walkmod.patch'
+        sh 'rm walkmod.patch'
         sh 'git commit -a --ammend -m "Fixing style violations"'
         sh 'git push'
         currentBuild.result = 'FAILURE'
