@@ -1,5 +1,5 @@
 #!groovy
-@Library('walkmod@blog/declarative/sauce') _ 
+@Library('walkmod') _ 
 
 node {
    def mvnHome
