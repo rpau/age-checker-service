@@ -1,3 +1,6 @@
+#!groovy
+@Library('walkmod@blog/declarative/sauce') _ 
+
 node {
    def mvnHome
    stage('Preparation') { // for display purposes
@@ -12,14 +15,8 @@ node {
    stage ('Fixing Release'){
       sh 'mvn walkmod:patch'
       if (fileExists('walkmod.patch')) {
-        echo 'walkmod has produced a patch'
-        sh 'git apply walkmod.patch'
-        sh 'rm walkmod.patch'
-        sh 'git commit -a --amend -m "Fixing style violations"'
-        sh 'git pull'
-        sh 'git push origin HEAD:master'
-        currentBuild.result = 'FAILURE'
-        error("Build failed by the lack of consistent coding style")
+        input "Does the patches look ok?"
+	applyPatch "master"        
       }
       echo 'no pending quick fixes to apply'
    }
