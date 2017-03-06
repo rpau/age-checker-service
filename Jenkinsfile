@@ -13,18 +13,13 @@ node {
    }
    
    stage ('Fixing Release'){
-      sh "${mvnHome}/bin/mvn walkmod:patch"
-      if (fileExists('walkmod.patch')) {
-        input "Does the patches look ok?"
-	applyPatch "master"        
-      }
-      echo 'no pending quick fixes to apply'
+      walkmodApply mvnHome = mvnHome        
    }
    
    stage('Build') {
       // Run the maven build
       echo "${mvnHome}/bin/mvn"
-      sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
+      sh "${mvnHome}/bin/mvn package"
       
    }
    stage('Results') {
