@@ -13,7 +13,7 @@ node {
    }
    
    stage ('Fixing Release'){
-      sh 'mvn walkmod:patch'
+      sh "${mvnHome}/bin/mvn walkmod:patch"
       if (fileExists('walkmod.patch')) {
         input "Does the patches look ok?"
 	applyPatch "master"        
