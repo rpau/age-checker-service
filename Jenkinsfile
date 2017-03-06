@@ -17,11 +17,12 @@ node {
         mvnHomeDir = "${mvnHome}"
       }        
    }
-   
+   stage ('Check conventions'){
+      sh "${mvnHome}/bin/mvn pmd:check"
+   }
    stage('Build') {
       // Run the maven build
-      echo "${mvnHome}/bin/mvn"
-      sh "${mvnHome}/bin/mvn -DskipWalkmod package"
+      sh "${mvnHome}/bin/mvn package"
       
    }
    stage('Results') {

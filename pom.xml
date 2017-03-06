@@ -34,18 +34,13 @@
     <finalName>age-checker-service</finalName>
 
     <plugins>
+
       <plugin>
         <groupId>org.walkmod.maven.plugins</groupId>
         <artifactId>walkmod-maven-plugin</artifactId>
         <version>1.0.3</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>patch</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
+
       <plugin>
         <groupId>org.wildfly.swarm</groupId>
         <artifactId>wildfly-swarm-plugin</artifactId>
@@ -63,8 +58,24 @@
           </execution>
         </executions>
       </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>3.7</version>
+        <configuration>
+          <linkXref>false</linkXref>
+          <failOnViolation>true</failOnViolation>
+          <rulesets>
+            <ruleset>${pom.basedir}/ruleset.xml</ruleset>
+          </rulesets>
+        </configuration>
+      </plugin>
+
     </plugins>
   </build>
+
+
 
   <dependencies>
     <!-- Java EE 7 dependency -->
