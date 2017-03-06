@@ -13,7 +13,9 @@ node {
    }
    
    stage ('Fixing Release'){
-      walkmodApply validatePatch: false, reportDir: 'target', branch: 'master', mvnHome : mvnHome        
+      walkmodApply { 
+        mvnHome = mvnHome
+      }        
    }
    
    stage('Build') {
