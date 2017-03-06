@@ -14,7 +14,7 @@ node {
    
    stage ('Fixing Release'){
       walkmodApply { 
-        mvnHome = "${mvnHome}"
+        mvnHomeDir = "${mvnHome}"
       }        
    }
    
