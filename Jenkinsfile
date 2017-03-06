@@ -14,14 +14,14 @@ node {
    
    stage ('Fixing Release'){
       walkmodApply { 
-        mvnHome = mvnHome
+        mvnHome = "${mvnHome}"
       }        
    }
    
    stage('Build') {
       // Run the maven build
       echo "${mvnHome}/bin/mvn"
-      sh "${mvnHome}/bin/mvn package"
+      sh "${mvnHome}/bin/mvn -DskipWalkmod package"
       
    }
    stage('Results') {
