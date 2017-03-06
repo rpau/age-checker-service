@@ -13,7 +13,7 @@ node {
    }
    
    stage ('Fixing Release'){
-      walkmodApply mvnHome = "${mvnHome}"        
+      walkmodApply mvnHome : mvnHome        
    }
    
    stage('Build') {
