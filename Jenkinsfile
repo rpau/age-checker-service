@@ -1,5 +1,5 @@
 #!groovy
-@Library('walkmod') _ 
+@Library('github.com/walkmod/jenkins-pipeline-shared@master')
 
 node {
    def mvnHome
