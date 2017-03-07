@@ -15,6 +15,7 @@ node {
    stage ('Fixing Release'){
       walkmodApply { 
         mvnHomeDir = "${mvnHome}"
+        validatePatch = true	
       }        
    }
    stage ('Check conventions'){
