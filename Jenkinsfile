@@ -1,33 +1,33 @@
 #!groovy
-@Library('github.com/walkmod/jenkins-pipeline-shared@master') _
+@Library('github.com/walkmod/jenkins-pipeline-shared@maven') _
 
-node {
-   def mvnHome
-   stage('Preparation') { // for display purposes
-      // Get some code from a GitHub repository
-      git 'https://github.com/rpau/age-checker-service.git'
-      // Get the Maven tool.
-      // ** NOTE: This 'M3' Maven tool must be configured
-      // **       in the global configuration.           
-      mvnHome = tool 'M3'
-   }
-   
+pipeline {
+   agent any
+  
+   stages {
+
    stage ('Fixing Release'){
-      walkmodApply { 
-        mvnHomeDir = "${mvnHome}"
-        validatePatch = true	
+      steps {
+         walkmodApply(validatePatch: true, 
+         branch: env.BRANCH_NAME, 
+         alwaysApply: true,
+         alwaysFail: true)
       }        
    }
    stage ('Check conventions'){
-      sh "${mvnHome}/bin/mvn pmd:check"
+      steps {
+         sh "mvn pmd:check"
+      }
    }
    stage('Build') {
-      // Run the maven build
-      sh "${mvnHome}/bin/mvn package"
-      
+      steps {
+         sh "mvn package"
+      }
    }
    stage('Results') {
-      //junit '**/target/surefire-reports/TEST-*.xml'
-      archive 'target/*.jar'
+      steps {
+          archive 'target/*.jar'
+      }
+   }
    }
 }
